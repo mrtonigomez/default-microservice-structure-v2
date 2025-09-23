@@ -3,7 +3,7 @@ package org.oril.controllers;
 import lombok.AllArgsConstructor;
 import org.oril.entities.AuthRequest;
 import org.oril.entities.AuthResponse;
-import org.oril.services.AuthService;
+import org.oril.services.AuthServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class AuthController {
 
-    private final AuthService authService;
+    private final AuthServiceImpl authServiceImpl;
 
     @PostMapping(value = "/register")
     public ResponseEntity<AuthResponse> register(@RequestBody AuthRequest request) {
-        return ResponseEntity.ok(authService.register(request));
+        return ResponseEntity.ok(authServiceImpl.register(request));
     }
 }
